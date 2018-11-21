@@ -1,0 +1,288 @@
+.item {
+	cursor: pointer;
+	-webkit-backface-visibility: hidden;
+}
+
+.item:hover > .overflow > .content-art {
+	-webkit-transform: translateY(0) translateZ(0);
+	transform: translateY(0) translateZ(0);
+}
+
+.overflow {
+	overflow: hidden;
+	position: relative;
+	width: 100%;
+	height: 100%;
+}
+
+.content-art {
+	background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.2) 100%);
+	color: #fff;
+	font-weight: 700 !important;
+	text-align: center;
+	padding: 10px 15px;
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	height: auto;
+	z-index: 100;
+	-webkit-backface-visibility: hidden;
+	-webkit-transform: translateY(100%) translateZ(0);
+	transform: translateY(100%) translateZ(0);
+	transition: -webkit-transform 450ms ease-out;
+	transition: transform 450ms ease-out;
+	transition: transform 450ms ease-out, -webkit-transform 450ms ease-out;
+}
+
+.nopadding {
+	padding: 0 !important;
+	margin: 0 !important;
+}
+
+*,
+*:after,
+*:before {
+	box-sizing: border-box;
+}
+
+html,
+body {
+	width: 100%;
+	height: 100%;
+}
+
+html {
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	text-rendering: optimizelegibility;
+}
+
+body {
+	background: #000;
+}
+
+h4 {
+	font-family: 'Roboto Condensed', sans-serif;
+	font-weight: 700;
+	font-size: 14px;
+	text-transform: uppercase;
+	text-align: left;
+}
+
+.etiqueta {
+	position: absolute;
+	bottom: 18px;
+	right: 10px;
+	background-color: #8f67f2;
+}
+
+
+/*MENU */
+
+.button_container {
+	position: fixed;
+	top: 5%;
+	right: 2%;
+	height: 27px;
+	width: 35px;
+	cursor: pointer;
+	z-index: 100;
+	transition: opacity .25s ease;
+}
+
+.button_container:hover {
+	opacity: .7;
+}
+
+.button_container.active .top {
+	transform: translateY(11px) translateX(0) rotate(45deg);
+	background: #FFF;
+}
+
+.button_container.active .middle {
+	opacity: 0;
+	background: #FFF;
+}
+
+.button_container.active .bottom {
+	transform: translateY(-11px) translateX(0) rotate(-45deg);
+	background: #FFF;
+}
+
+.button_container span {
+	background: #fff;
+	border: none;
+	height: 2px;
+	width: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	transition: all .35s ease;
+	cursor: pointer;
+}
+
+.button_container span:nth-of-type(2) {
+	top: 11px;
+}
+
+.button_container span:nth-of-type(3) {
+	top: 22px;
+}
+
+.overlay {
+	position: fixed;
+	background: #22183c;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 0%;
+	opacity: 0;
+	visibility: hidden;
+	transition: opacity .35s, visibility .35s, height .35s;
+	overflow: hidden;
+	z-index: 2;
+}
+
+.overlay.open {
+	opacity: .9;
+	visibility: visible;
+	height: 100%;
+}
+
+.overlay.open li {
+	animation: fadeInRight .5s ease forwards;
+	animation-delay: .35s;
+}
+
+.overlay.open li:nth-of-type(2) {
+	animation-delay: .4s;
+}
+
+.overlay.open li:nth-of-type(3) {
+	animation-delay: .45s;
+}
+
+.overlay.open li:nth-of-type(4) {
+	animation-delay: .50s;
+}
+
+.overlay nav {
+	position: relative;
+	height: 80%;
+	top: 50%;
+	transform: translateY(-50%);
+	font-size: 18px;
+	font-family: 'Roboto Condensed', sans-serif;
+	font-weight: 300;
+	text-align: center;
+	letter-spacing: 40px;
+	text-transform: uppercase;
+	text-align: center;
+}
+
+.overlay ul {
+	list-style: none;
+	padding: 0;
+	margin: 0 auto;
+	display: inline-block;
+	position: relative;
+	height: 100%;
+}
+
+.overlay ul li {
+	display: block;
+	height: 25%;
+	height: calc(100% / 4);
+	min-height: 50px;
+	position: relative;
+	opacity: 0;
+}
+
+.overlay ul li a {
+	display: block;
+	position: relative;
+	color: #FFF;
+	text-decoration: none;
+	overflow: hidden;
+}
+
+.overlay ul li a:hover:after,
+.overlay ul li a:focus:after,
+.overlay ul li a:active:after {
+	width: 100%;
+}
+
+.overlay ul li a:after {
+	content: '';
+	position: absolute;
+	bottom: 0;
+	left: 50%;
+	width: 0%;
+	transform: translateX(-50%);
+	height: 1px;
+	background: #FFF;
+	transition: .35s;
+}
+
+@keyframes fadeInRight {
+	0% {
+		opacity: 0;
+		left: 20%;
+	}
+
+	100% {
+		opacity: 1;
+		left: 0;
+	}
+}
+
+/** LIGHTBOX MARKUP **/
+
+.lightbox {
+	/** Default lightbox to hidden */
+	display: none;
+
+	/** Position and style */
+	position: fixed;
+	z-index: 999;
+	width: 100%;
+	height: 100%;
+	text-align: center;
+	top: 0;
+	left: 0;
+	background: rgba(0,0,0,0.8);
+}
+
+.lightbox img {
+	/** Pad the lightbox image */
+	max-width: 90%;
+	max-height: 80%;
+	margin-top: 2%;
+	box-shadow: 5px 0px 100px rgba(0, 0, 0, 1);
+}
+
+.lightbox:target {
+	/** Remove default browser outline */
+	outline: none;
+
+	/** Unhide lightbox **/
+	display: block;
+}
+
+@media only screen and (max-width: 768px) {
+	
+.lightbox img {
+display: none;
+}
+.lightbox  {
+display: none;
+}
+.lightbox:target {
+display: none;
+}
+}
+
+i.fas.fa-search {
+    margin-left: 10px;
+}
