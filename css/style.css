@@ -40,6 +40,11 @@
 	margin: 0 !important;
 }
 
+.container-fluid {
+    padding-right: 0px; 
+    padding-left: 0px; 
+}
+
 *,
 *:after,
 *:before {
@@ -70,11 +75,49 @@ h4 {
 	text-align: left;
 }
 
+h1 {
+	font-family: 'Roboto Condensed', sans-serif;
+	font-weight: 700;
+	color: white;
+	font-size: 30px;
+	text-transform: uppercase;
+	text-align: left;
+	margin-top: 40px;
+}
+
+p {
+	margin-top: 20px;
+	font-family: 'Roboto Condensed', sans-serif;
+	font-weight: 500;
+	line-height: 160%;
+	color: lightgray;
+	font-size: 18px;
+}
+
+.nada {
+	width: 100%;
+	float: left;
+	height: 100px;
+}
 .etiqueta {
 	position: absolute;
 	bottom: 18px;
 	right: 10px;
 	background-color: #8f67f2;
+}
+
+.logo {
+	position: fixed;
+	top: 2%;
+	left: 2%;
+	width: 150px;
+	cursor: pointer;
+	z-index: 100;
+	transition: opacity .25s ease;
+}
+
+.logo img {
+	max-width: 150px;
 }
 
 
@@ -285,4 +328,111 @@ display: none;
 
 i.fas.fa-search {
     margin-left: 10px;
+}
+
+
+
+
+.work1 {
+	  background: url("https://static1.squarespace.com/static/5567ede4e4b0e2f8eac07860/58114d37bebafb2c8ab302e8/5b0f8ff2562fa7678cded2ec/1527746903383/DJI_0217.jpg?format=2000w") center center/cover;
+}
+
+.work2 {
+	  background: url("https://static1.squarespace.com/static/5567ede4e4b0e2f8eac07860/58114d37bebafb2c8ab302e8/58114ee59f7456709e60532f/1527746902838/DSC03453.jpg?format=2000w") center center/cover;
+}
+
+.work3 {
+	  background: url("https://static1.squarespace.com/static/5567ede4e4b0e2f8eac07860/58114d37bebafb2c8ab302e8/5b0f912170a6ad58c23ec03b/1527748767474/KOST2852.jpg?format=2000w") center center/cover;
+}
+
+.work4 {
+	  background: url("https://static1.squarespace.com/static/5567ede4e4b0e2f8eac07860/58114d37bebafb2c8ab302e8/5919f3ec6b8f5b0cc9eaa3bf/1527748766857/IMG_2539-2.jpg?format=2000w") center center/cover;
+}
+
+/* ------------ CARD ------------ */
+.card {
+  width: 100%;
+  height: calc(	9/8 * 50vw);
+  display: flex;
+  position: relative;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  overflow: hidden;
+ margin-top: 80px;
+}
+
+.card-play {
+  width: 48px;
+  height: 48px;
+  position: relative;
+  z-index: 1;
+  margin: auto;
+  opacity: 0;
+  background: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/1613479/play.svg") center center/cover;
+  cursor: pointer;
+  transition: opacity .3s ease-out;
+}
+
+.card-play:after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: #000;
+  transition: all .5s ease-out;
+}
+
+.card-video {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 1;
+  background: #000;
+}
+.card-video iframe {
+  width: 100%;
+  height: 100%;
+}
+
+.card:after {
+  content: '';
+  width: 250%;
+  height: 250%;
+  position: absolute;
+  top: var(--y);
+  left: var(--x);
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  opacity: 0;
+  background: radial-gradient(circle closest-side, rgba(143, 103, 242, 0.3), transparent);
+  transition: opacity 0.5s ease-out;
+
+}
+
+/* ------------ STATES ------------ */
+.card:hover:after,
+.card:hover .card-play {
+  opacity: 1;
+}
+
+.video-is-open:after {
+  display: none;
+}
+
+.video-is-open .card-play {
+  opacity: 1;
+}
+.video-is-open .card-play:after {
+  width: 2vh;
+  height: 2vh;
+  -webkit-transform: translate(-50%, -50%) scale(88.8888888889);
+  transform: translate(-50%, -50%) scale(88.8888888889);
+  transition: -webkit-transform .5s ease-out;
+  transition: transform .5s ease-out;
+  transition: transform .5s ease-out, -webkit-transform .5s ease-out;
 }
