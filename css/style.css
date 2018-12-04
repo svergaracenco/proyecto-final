@@ -436,3 +436,41 @@ i.fas.fa-search {
   transition: transform .5s ease-out;
   transition: transform .5s ease-out, -webkit-transform .5s ease-out;
 }
+
+
+
+/* ------------ FORM------------ */
+
+.contact-form{width:100%;margin:0 auto;}
+.contact-form .form-control{
+	border:none;
+	box-shadow:none;
+	border-radius:0;
+	border-bottom: 1px solid #cfd8dc;
+	transition: 1s ease;
+	font-weight: bold;
+	}
+	.contact-form .form-control:focus{
+	transition: 1s ease;
+	border-bottom: 2px solid #8f67f2;
+	}
+	.contact-main  .contact-main-title h2{
+	margin-top:0;
+	}
+
+	.contact-form .send-msg{
+	color:#8f67f2;
+	border:2px solid #8f67f2;
+	height:40px;
+	background-color:transparent;
+	transition: all 0.8s ease-out;
+	margin-top:40px;
+	font-weight: bold;
+	}
+
+	.contact-form .send-msg:hover{
+	color:#fff;
+	height:40px;
+	background-color:#8f67f2;
+	margin-bottom: 40px;
+	}
