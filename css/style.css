@@ -313,6 +313,8 @@ p {
 	display: block;
 }
 
+
+/** NO SE MUESTRA LISGHT BOX EN MOBILE**/
 @media only screen and (max-width: 768px) {
 	
 .lightbox img {
@@ -474,3 +476,9 @@ i.fas.fa-search {
 	background-color:#8f67f2;
 	margin-bottom: 40px;
 	}
+
+.pagination>li>a, .pagination>li>span {
+    color: #888;
+	background-color: #222;
+    border: 1px solid #555;
+}
